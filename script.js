@@ -19,7 +19,7 @@ function createHeart() {
 
   heart.style.left = Math.random() * window.innerWidth + "px";
 
-  const size = Math.random() * 30 + 20;
+  const size = Math.random() * 20 + 18;
   heart.style.fontSize = size + "px";
 
   const duration = Math.random() * 3 + 2;

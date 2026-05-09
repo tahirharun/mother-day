@@ -2,66 +2,75 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
 }
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
   overflow: hidden;
 }
 .container {
   background: white;
-  padding: 40px;
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 30px 22px;
   border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  animation: fadeIn 1.2s ease;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: fadeIn 1s ease;
+  z-index: 2;
 }
 h1 {
   color: #ff3b6b;
-  font-size: 2.7rem;
-  margin-bottom: 20px;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 18px;
+  line-height: 1.2;
 }
 .message {
   color: #555;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 4vw, 1.2rem);
   line-height: 1.7;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 button {
-  padding: 15px 30px;
   border: none;
-  border-radius: 50px;
+  outline: none;
   background: #ff3b6b;
   color: white;
+  padding: 15px 25px;
+  width: 100%;
+  border-radius: 50px;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 button:hover {
   background: #ff1f57;
-  transform: scale(1.08);
+  transform: scale(1.03);
+}
+button:active {
+  transform: scale(0.98);
 }
 #surprise {
-  margin-top: 25px;
-  font-size: 2rem;
+  margin-top: 24px;
+  font-size: clamp(1.4rem, 5vw, 2rem);
   color: #ff1f57;
-  animation: popUp 0.8s ease;
+  animation: popUp 0.7s ease;
 }
 .hidden {
   display: none;
 }
 .heart {
-  position: absolute;
+  position: fixed;
   bottom: -20px;
-  font-size: 24px;
   animation: floatHeart linear forwards;
   pointer-events: none;
+  z-index: 1;
 }
 @keyframes floatHeart {
   0% {
@@ -70,16 +79,15 @@ button:hover {
   }
 
   100% {
-    transform: translateY(-110vh) scale(1.8);
+    transform: translateY(-120vh) scale(1.8);
     opacity: 0;
   }
 }
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -93,5 +101,14 @@ button:hover {
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    padding: 25px 18px;
+  }
+
+  button {
+    padding: 14px 20px;
   }
 }
